@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="gestolimpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TMUsuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="contrasenha" Type="nvarchar(max)" />
+          <Property Name="estado" Type="int" />
+          <Property Name="token" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TTTipoComisario">
+          <Key>
+            <PropertyRef Name="IdTipoComisario" />
+          </Key>
+          <Property Name="IdTipoComisario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescriTipoComisario" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TTTipoComplejo">
+          <Key>
+            <PropertyRef Name="IdTipoComplejo" />
+          </Key>
+          <Property Name="IdTipoComplejo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescriTipoComplejo" Type="nvarchar(max)" />
+        </EntityType>
+        <Function Name="TS_TMUsuarios_ActualizarToken" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdUsuario" Type="int" Mode="In" />
+          <Parameter Name="Token" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="TS_TMUsuarios_ExisteUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Usuario" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="gestolimpModelStoreContainer">
+          <EntitySet Name="TMUsuarios" EntityType="Self.TMUsuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TTTipoComisario" EntityType="Self.TTTipoComisario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TTTipoComplejo" EntityType="Self.TTTipoComplejo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="gestolimpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TMUsuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="contrasenha" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="estado" Type="Int32" />
+          <Property Name="token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TTTipoComisario">
+          <Key>
+            <PropertyRef Name="IdTipoComisario" />
+          </Key>
+          <Property Name="IdTipoComisario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescriTipoComisario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TTTipoComplejo">
+          <Key>
+            <PropertyRef Name="IdTipoComplejo" />
+          </Key>
+          <Property Name="IdTipoComplejo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescriTipoComplejo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="gestolimpEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TMUsuarios" EntityType="Self.TMUsuarios" />
+          <EntitySet Name="TTTipoComisario" EntityType="Self.TTTipoComisario" />
+          <EntitySet Name="TTTipoComplejo" EntityType="Self.TTTipoComplejo" />
+          <FunctionImport Name="TS_TMUsuarios_ActualizarToken">
+            <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="Token" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TS_TMUsuarios_ExisteUsuario" ReturnType="Collection(gestolimpModel.TS_TMUsuarios_ExisteUsuario_Result)">
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="TS_TMUsuarios_ExisteUsuario_Result">
+          <Property Type="Int32" Name="IdUsuario" Nullable="false" />
+          <Property Type="String" Name="usuario" Nullable="true" />
+          <Property Type="String" Name="email" Nullable="true" />
+          <Property Type="String" Name="contrasenha" Nullable="true" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+          <Property Type="String" Name="token" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="gestolimpModelStoreContainer" CdmEntityContainer="gestolimpEntities">
+          <EntitySetMapping Name="TMUsuarios">
+            <EntityTypeMapping TypeName="gestolimpModel.TMUsuarios">
+              <MappingFragment StoreEntitySet="TMUsuarios">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contrasenha" ColumnName="contrasenha" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="token" ColumnName="token" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TTTipoComisario">
+            <EntityTypeMapping TypeName="gestolimpModel.TTTipoComisario">
+              <MappingFragment StoreEntitySet="TTTipoComisario">
+                <ScalarProperty Name="IdTipoComisario" ColumnName="IdTipoComisario" />
+                <ScalarProperty Name="DescriTipoComisario" ColumnName="DescriTipoComisario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TTTipoComplejo">
+            <EntityTypeMapping TypeName="gestolimpModel.TTTipoComplejo">
+              <MappingFragment StoreEntitySet="TTTipoComplejo">
+                <ScalarProperty Name="IdTipoComplejo" ColumnName="IdTipoComplejo" />
+                <ScalarProperty Name="DescriTipoComplejo" ColumnName="DescriTipoComplejo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TS_TMUsuarios_ActualizarToken" FunctionName="gestolimpModel.Store.TS_TMUsuarios_ActualizarToken" />
+          <FunctionImportMapping FunctionImportName="TS_TMUsuarios_ExisteUsuario" FunctionName="gestolimpModel.Store.TS_TMUsuarios_ExisteUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="gestolimpModel.TS_TMUsuarios_ExisteUsuario_Result">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contrasenha" ColumnName="contrasenha" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="token" ColumnName="token" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

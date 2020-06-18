@@ -12,6 +12,8 @@ namespace WebApiSegura.DBModel
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class gestolimpEntities : DbContext
     {
@@ -27,5 +29,28 @@ namespace WebApiSegura.DBModel
     
         public virtual DbSet<TTTipoComplejo> TTTipoComplejo { get; set; }
         public virtual DbSet<TTTipoComisario> TTTipoComisario { get; set; }
+        public virtual DbSet<TMUsuarios> TMUsuarios { get; set; }
+    
+        public virtual int TS_TMUsuarios_ActualizarToken(Nullable<int> idUsuario, string token)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("IdUsuario", idUsuario) :
+                new ObjectParameter("IdUsuario", typeof(int));
+    
+            var tokenParameter = token != null ?
+                new ObjectParameter("Token", token) :
+                new ObjectParameter("Token", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TS_TMUsuarios_ActualizarToken", idUsuarioParameter, tokenParameter);
+        }
+    
+        public virtual ObjectResult<TS_TMUsuarios_ExisteUsuario_Result> TS_TMUsuarios_ExisteUsuario(string usuario)
+        {
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("Usuario", usuario) :
+                new ObjectParameter("Usuario", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TS_TMUsuarios_ExisteUsuario_Result>("TS_TMUsuarios_ExisteUsuario", usuarioParameter);
+        }
     }
 }

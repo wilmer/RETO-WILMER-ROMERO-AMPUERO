@@ -1,0 +1,34 @@
+﻿
+      .bad {
+        font-weight: bold;
+        color: #f00;
+    }
+    .critical {
+        background-color: #fdd;
+    }
+
+    .warning {
+        background-color: #fda;
+    }
+
+    .ok {
+        background-color: #ced;
+    }
+    .good {
+        font-weight: bold;
+        color: #449d44;
+    }
+    .greenBg {
+    background: green;
+    }
+  
+  .yellow
+  {
+      background-color:#EEE8AA;
+  } 
+  .red
+  {
+      background-color: #F08080;
+  } 
+
+  

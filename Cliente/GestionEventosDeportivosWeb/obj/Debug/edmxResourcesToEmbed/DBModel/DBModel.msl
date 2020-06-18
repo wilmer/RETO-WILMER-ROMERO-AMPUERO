@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="gestolimpModelStoreContainer" CdmEntityContainer="gestolimpEntities">
+    <EntitySetMapping Name="TMUsuarios">
+      <EntityTypeMapping TypeName="gestolimpModel.TMUsuarios">
+        <MappingFragment StoreEntitySet="TMUsuarios">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="contrasenha" ColumnName="contrasenha" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="token" ColumnName="token" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TTTipoComisario">
+      <EntityTypeMapping TypeName="gestolimpModel.TTTipoComisario">
+        <MappingFragment StoreEntitySet="TTTipoComisario">
+          <ScalarProperty Name="IdTipoComisario" ColumnName="IdTipoComisario" />
+          <ScalarProperty Name="DescriTipoComisario" ColumnName="DescriTipoComisario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TTTipoComplejo">
+      <EntityTypeMapping TypeName="gestolimpModel.TTTipoComplejo">
+        <MappingFragment StoreEntitySet="TTTipoComplejo">
+          <ScalarProperty Name="IdTipoComplejo" ColumnName="IdTipoComplejo" />
+          <ScalarProperty Name="DescriTipoComplejo" ColumnName="DescriTipoComplejo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="TS_TMUsuarios_ActualizarToken" FunctionName="gestolimpModel.Store.TS_TMUsuarios_ActualizarToken" />
+    <FunctionImportMapping FunctionImportName="TS_TMUsuarios_ExisteUsuario" FunctionName="gestolimpModel.Store.TS_TMUsuarios_ExisteUsuario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="gestolimpModel.TS_TMUsuarios_ExisteUsuario_Result">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="contrasenha" ColumnName="contrasenha" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="token" ColumnName="token" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
