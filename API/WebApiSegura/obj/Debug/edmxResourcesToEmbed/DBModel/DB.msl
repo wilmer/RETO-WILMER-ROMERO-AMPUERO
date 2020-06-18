@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="gestolimpModelStoreContainer" CdmEntityContainer="gestolimpEntities">
+    <EntitySetMapping Name="TTTipoComplejo">
+      <EntityTypeMapping TypeName="gestolimpModel.TTTipoComplejo">
+        <MappingFragment StoreEntitySet="TTTipoComplejo">
+          <ScalarProperty Name="IdTipoComplejo" ColumnName="IdTipoComplejo" />
+          <ScalarProperty Name="DescriTipoComplejo" ColumnName="DescriTipoComplejo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TTTipoComisario">
+      <EntityTypeMapping TypeName="gestolimpModel.TTTipoComisario">
+        <MappingFragment StoreEntitySet="TTTipoComisario">
+          <ScalarProperty Name="DescriTipoComisario" ColumnName="DescriTipoComisario" />
+          <ScalarProperty Name="IdTipoComisario" ColumnName="IdTipoComisario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

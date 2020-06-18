@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gestolimpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TTTipoComisario">
+    <Key>
+      <PropertyRef Name="IdTipoComisario" />
+    </Key>
+    <Property Name="IdTipoComisario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescriTipoComisario" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TTTipoComplejo">
+    <Key>
+      <PropertyRef Name="IdTipoComplejo" />
+    </Key>
+    <Property Name="IdTipoComplejo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescriTipoComplejo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="gestolimpModelStoreContainer">
+    <EntitySet Name="TTTipoComisario" EntityType="Self.TTTipoComisario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTTipoComplejo" EntityType="Self.TTTipoComplejo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

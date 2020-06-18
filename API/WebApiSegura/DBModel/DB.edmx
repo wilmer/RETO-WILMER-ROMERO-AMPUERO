@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="gestolimpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TTTipoComisario">
+          <Key>
+            <PropertyRef Name="IdTipoComisario" />
+          </Key>
+          <Property Name="IdTipoComisario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescriTipoComisario" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TTTipoComplejo">
+          <Key>
+            <PropertyRef Name="IdTipoComplejo" />
+          </Key>
+          <Property Name="IdTipoComplejo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescriTipoComplejo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="gestolimpModelStoreContainer">
+          <EntitySet Name="TTTipoComisario" EntityType="Self.TTTipoComisario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TTTipoComplejo" EntityType="Self.TTTipoComplejo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="gestolimpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TTTipoComplejo">
+          <Key>
+            <PropertyRef Name="IdTipoComplejo" />
+          </Key>
+          <Property Name="IdTipoComplejo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescriTipoComplejo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="gestolimpEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TTTipoComplejo" EntityType="Self.TTTipoComplejo" />
+          <EntitySet Name="TTTipoComisario" EntityType="gestolimpModel.TTTipoComisario" />
+        </EntityContainer>
+        <EntityType Name="TTTipoComisario">
+          <Key>
+            <PropertyRef Name="IdTipoComisario" />
+          </Key>
+          <Property Name="IdTipoComisario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescriTipoComisario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="gestolimpModelStoreContainer" CdmEntityContainer="gestolimpEntities">
+          <EntitySetMapping Name="TTTipoComplejo">
+            <EntityTypeMapping TypeName="gestolimpModel.TTTipoComplejo">
+              <MappingFragment StoreEntitySet="TTTipoComplejo">
+                <ScalarProperty Name="IdTipoComplejo" ColumnName="IdTipoComplejo" />
+                <ScalarProperty Name="DescriTipoComplejo" ColumnName="DescriTipoComplejo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TTTipoComisario">
+            <EntityTypeMapping TypeName="gestolimpModel.TTTipoComisario">
+              <MappingFragment StoreEntitySet="TTTipoComisario">
+                <ScalarProperty Name="DescriTipoComisario" ColumnName="DescriTipoComisario" />
+                <ScalarProperty Name="IdTipoComisario" ColumnName="IdTipoComisario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
