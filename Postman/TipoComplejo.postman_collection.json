@@ -1,0 +1,10 @@
+[
+  {
+    "IdTipoComplejo": 1,
+    "DescriTipoComplejo": "Deporte único"
+  },
+  {
+    "IdTipoComplejo": 2,
+    "DescriTipoComplejo": "Polideportivo"
+  }
+]

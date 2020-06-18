@@ -1,0 +1,10 @@
+[
+  {
+    "IdTipoComisario": 1,
+    "DescriTipoComisario": "Tipo Comisario 1"
+  },
+  {
+    "IdTipoComisario": 2,
+    "DescriTipoComisario": "Tipo Comisario 2"
+  }
+]
