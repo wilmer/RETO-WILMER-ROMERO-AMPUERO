@@ -1,0 +1,1 @@
+El gestor utilizado fue SQL Server 20014
